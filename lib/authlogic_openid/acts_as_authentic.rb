@@ -44,6 +44,9 @@ module AuthlogicOpenid
           validates_uniqueness_of :openid_identifier, :scope => validations_scope, :if => :using_openid?
           validate :validate_openid
           validates_length_of_password_field_options validates_length_of_password_field_options.merge(:if => :validate_password_with_openid?)
+          validates_length_of_login_field_options validates_length_of_login_field_options.merge(:if => :validate_login_with_openid?)
+          validates_format_of_login_field_options validates_format_of_login_field_options.merge(:if => :validate_login_with_openid?)
+          validates_uniqueness_of_login_field_options validates_uniqueness_of_login_field_options.merge(:if => :validate_login_with_openid?)
           validates_confirmation_of_password_field_options validates_confirmation_of_password_field_options.merge(:if => :validate_password_with_openid?)
           validates_length_of_password_confirmation_field_options validates_length_of_password_confirmation_field_options.merge(:if => :validate_password_with_openid?)
         end
@@ -161,6 +164,10 @@ module AuthlogicOpenid
         
         def validate_password_with_openid?
           !using_openid? && require_password?
+        end
+        
+        def validate_login_with_openid?
+          !using_openid?
         end
     end
   end
