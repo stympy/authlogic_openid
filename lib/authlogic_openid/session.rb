@@ -25,7 +25,7 @@ module AuthlogicOpenid
       # * <tt>Default:</tt> :find_by_openid_identifier
       # * <tt>Accepts:</tt> Symbol
       def find_by_openid_identifier_method(value = nil)
-        config(:find_by_openid_identifier_method, value, :find_by_openid_identifier)
+        rw_config(:find_by_openid_identifier_method, value, :find_by_openid_identifier)
       end
       alias_method :find_by_openid_identifier_method=, :find_by_openid_identifier_method
     end

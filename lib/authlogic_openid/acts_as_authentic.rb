@@ -23,7 +23,7 @@ module AuthlogicOpenid
       # * <tt>Default:</tt> []
       # * <tt>Accepts:</tt> Array of symbols
       def required_fields(value = nil)
-        config(:required_fields, value, [])
+        rw_config(:required_fields, value, [])
       end
       alias_method :required_fields=, :required_fields
       
@@ -32,7 +32,7 @@ module AuthlogicOpenid
       # * <tt>Default:</tt> []
       # * <tt>Accepts:</tt> Array of symbols
       def optional_fields(value = nil)
-        config(:optional_fields, value, [])
+        rw_config(:optional_fields, value, [])
       end
       alias_method :optional_fields=, :optional_fields
     end
